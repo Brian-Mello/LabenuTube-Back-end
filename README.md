@@ -20,7 +20,7 @@ Por ser um projeto com ReactJS, há a necessidade do NodeJS. Com ele em sua máq
 1. `npm run build` ou `yarn build` para gerar uma versão estática do projeto (que ficará na pasta `build`)
 
 ## Links
-Esses links servem para acessar os endpoint do back-end
+Esses links servem para acessar os endpoint do back-end.
 
 AWS API-Gateway: https://vj4kbpy8c0.execute-api.us-east-1.amazonaws.com/v1
 
