@@ -27,6 +27,10 @@ AWS API-Gateway: https://vj4kbpy8c0.execute-api.us-east-1.amazonaws.com/v1
 Postman: https://documenter.getpostman.com/view/9731771/Szf54pVC?version=latest
 
 ## Contato
-Brian de Paula Mello
-brianmmello@gmail.com
-21 98268-1935
+Nome: Brian de Paula Mello
+
+Link: https://www.linkedin.com/in/brian-de-paula-mello-6b8577161/
+
+Email: brianmmello@gmail.com
+
+Celular: (21) 98268-1935
