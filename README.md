@@ -29,7 +29,7 @@ Postman: https://documenter.getpostman.com/view/9731771/Szf54pVC?version=latest
 ## Contato
 Nome: Brian de Paula Mello
 
-Link: https://www.linkedin.com/in/brian-de-paula-mello-6b8577161/
+Linkedin: https://www.linkedin.com/in/brian-de-paula-mello-6b8577161/
 
 Email: brianmmello@gmail.com
 
