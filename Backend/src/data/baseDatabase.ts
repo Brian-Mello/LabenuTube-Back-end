@@ -2,7 +2,7 @@ import knex from "knex";
 
 export abstract class BaseDB {
   protected connection = knex({
-    client: process.env.CLIENT as string,
+    client: "mysql",
     connection: {
       host: process.env.HOST,
       port: 3306,
