@@ -15,13 +15,14 @@ export const GetUserDataEndpoint = async (req: Request, res: Response) => {
         const token = auth as string;
 
         const getUserDataUC = new GetUserDataUC( new UserDB(), new JwtAuthorizer());
-
+        
         const result = await getUserDataUC.execute({
             token
         })
 
         res.status(200).send(result)
     } catch(err){
+        console.log(err)
         res.status(400).send({
             message: err.message
         })
