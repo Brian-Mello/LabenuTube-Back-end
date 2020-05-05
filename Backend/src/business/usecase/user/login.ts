@@ -15,15 +15,16 @@ export class LoginUC {
         if(input.email.indexOf("@") === -1 || input.password.length <6 || !input.email || !input.password){
             throw new InvalidParameterError("Invalid password or email!");
         };
+        console.log('input: ', input);
 
         const user = await this.userGateway.login(input.email);
-
+        console.log('user: ', user);
         if(!user){
             throw new Error("User not Found!");
         };
 
         const compare = await this.cryptographyGateway.compare(input.password, user.getPassword());
-
+        console.log('compare: ', compare);
         if(!compare){
             throw new InvalidParameterError("Invalid password or email!");
         };
@@ -32,17 +33,17 @@ export class LoginUC {
             id: user.getId(),
             type: user.getType()
         }, process.env.ACCESS_TOKEN_TIME as string)
-
+        console.log('accessToken: ', accessToken);
         const refreshToken = this.authenticationGateway.generateToken({
             id: user.getId(),
             userDevice: input.device
         }, process.env.REFRESH_TOKEN_TIME as string)
-
+        console.log('refreshToken: ', refreshToken);
         const refreshTokenForUserAndDevice = await this.refreshTokenGateway.getRefreshToken(
             input.device,
             user.getId()
         )
-
+        console.log('refreshTokenForUserAndDevice: ', refreshTokenForUserAndDevice);
         if(refreshTokenForUserAndDevice){
             await this.refreshTokenGateway.deleteRefreshToken(input.device, user.getId())
         }
