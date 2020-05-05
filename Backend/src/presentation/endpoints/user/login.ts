@@ -5,25 +5,32 @@ import { JwtAuthorizer } from "../../lambda/services/jwtAuthorizer";
 import { BcryptService } from "../../lambda/services/bcryptServices";
 import { RefreshTokenDB } from "../../../data/refreshTokenDataBase";
 
-export const LoginEndpoint = async(req: Request, res: Response) =>{
-    try {
+export const LoginEndpoint = async (req: Request, res: Response) => {
+  try {
+    console.log("Login Endpoint");
+    const loginUC = new LoginUC(
+      new UserDB(),
+      new JwtAuthorizer(),
+      new BcryptService(),
+      new RefreshTokenDB()
+    );
 
-        const loginUC = new LoginUC(new UserDB(), new JwtAuthorizer(), new BcryptService(), new RefreshTokenDB());
+    const email = req.body.email;
+    const password = req.body.password;
+    const device = req.body.device;
 
-        const email = req.body.email;
-        const password = req.body.password;
-        const device = req.body.device;
+    console.log("Calling LoginUC execute");
 
-        const result = await loginUC.execute({
-            email,
-            password,
-            device
-        });
+    const result = await loginUC.execute({
+      email,
+      password,
+      device,
+    });
 
-        res.status(200).send(result);
-    } catch(err) {
-        res.status(400).send({
-            message: err.message
-        });
-    }
-}
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+};
